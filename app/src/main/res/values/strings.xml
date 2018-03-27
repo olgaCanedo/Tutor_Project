@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Tutors</string>
+    <string name="action_update">Update</string>
+    <string name="action_delete">You selected Delete.</string>
+    <string name="title_activity_users">Users</string>
+    <string name="title_activity_user_views">UserViews</string>
+    <string name="Entec">Entec</string>
+    <string name="Math">Math</string>
+    <string name="Business">Business</string>
+    <string name="addTutors">Tutors</string>
+
+    <string name="Campus">Campus</string>
+    <string name="Delete">Delete</string>
+    <string name="Update">Update</string>
+    <string name="openDrawer">openDrawer</string>
+    <string name="closeDrawer">closeDrawer</string>
+</resources>

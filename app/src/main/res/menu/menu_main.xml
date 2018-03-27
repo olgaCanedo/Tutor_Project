@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.olgac.tutors_project.MainActivity">
+    <item
+        android:id="@+id/action_tutor"
+        android:icon="@drawable/tutors"
+        android:orderInCategory="10"
+        android:title="@string/addTutors"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_delete"
+        android:orderInCategory="20"
+        android:title="@string/Delete"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_update"
+        android:orderInCategory="30"
+        android:title="@string/Update"
+        app:showAsAction="never" />
+</menu>
