@@ -74,8 +74,8 @@ public class TutorsOperations {
                 cursor.getString(2),
                 cursor.getString(3),
                 cursor.getString(4),
-                cursor.getString(5),
-                cursor.getString(6),
+                cursor.getInt(5),
+                cursor.getInt(6),
                 cursor.getString(7));
         // return Tutor
         return tutorRec;
@@ -96,8 +96,8 @@ public class TutorsOperations {
                 tutor.setLastName(cursor.getString(cursor.getColumnIndex(SQLite_OpenHelper.COLUMN_LAST_NAME)));
                 tutor.setEmail(cursor.getString(cursor.getColumnIndex(SQLite_OpenHelper.COLUMN_EMAIL)));
                 tutor.setPhone(cursor.getString(cursor.getColumnIndex(SQLite_OpenHelper.COLUMN_PHONE)));
-                tutor.setCampus(cursor.getString(cursor.getColumnIndex(SQLite_OpenHelper.COLUMN_CAMPUS)));
-                tutor.setSubject(cursor.getString(cursor.getColumnIndex(SQLite_OpenHelper.COLUMN_SUBJECT)));
+                tutor.setCampus(cursor.getInt(cursor.getColumnIndex(SQLite_OpenHelper.COLUMN_CAMPUS)));
+                tutor.setSubject(cursor.getInt(cursor.getColumnIndex(SQLite_OpenHelper.COLUMN_SUBJECT)));
                 tutor.setSkill(cursor.getString(cursor.getColumnIndex(SQLite_OpenHelper.COLUMN_CAMPUS)));
                 tutors.add(tutor);
             }

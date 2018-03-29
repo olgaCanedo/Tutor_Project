@@ -1,5 +1,6 @@
 package com.example.olgac.tutors_project;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 import OpenHelper.SQLite_OpenHelper;
 
 public class Users extends AppCompatActivity {
-
+    Context context;
     Button btnAddUser;
     EditText txtUserName, txtUserPassword;
 
@@ -23,6 +24,8 @@ public class Users extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
 
+        context = this;
+
         btnAddUser = (Button) findViewById(R.id.btnAddUser);
         txtUserName = (EditText) findViewById(R.id.txtUserName);
         txtUserPassword = (EditText) findViewById(R.id.txtUserPassword);
@@ -30,11 +33,16 @@ public class Users extends AppCompatActivity {
         btnAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helper.openDB();
+                /*helper.openDB();
                 helper.insertUser(String.valueOf(txtUserName.getText()),
                         String.valueOf(txtUserPassword.getText()));
 
-                helper.closeDB();
+                helper.closeDB();*/
+
+                AppDatabase database = AppDatabase.getInstance(context);
+                database.userModel().insertUser(new User(1,String.valueOf(txtUserName.getText()),
+                        String.valueOf(txtUserPassword.getText())));
+                database.close();
                 Toast.makeText(getApplicationContext(), "Record saved",
                         Toast.LENGTH_LONG).show();
 

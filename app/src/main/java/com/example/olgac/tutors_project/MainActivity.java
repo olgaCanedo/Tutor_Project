@@ -3,7 +3,6 @@ package com.example.olgac.tutors_project;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.SQLException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +16,7 @@ import OpenHelper.SQLite_OpenHelper;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Context context;
     private SharedPreferences sharedPrefer;
     private TextView txtRegister;
     private Button btnLogIn;
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtPasswordS;
     private String userSF;
     private String passwordSF;
+    private AppDatabase db;
 
     SQLite_OpenHelper helper = new
             SQLite_OpenHelper(this);
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        context = this;
 
         sharedPrefer = getSharedPreferences("UserPrefer", Context.MODE_PRIVATE);
         //Reading the username from the shared preferences
@@ -59,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        Toast.makeText(getApplicationContext(), "*************NO hace nada",
+                Toast.LENGTH_LONG).show();
+
         btnLogIn = (Button) findViewById(R.id.btnLogIn);
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,8 +80,13 @@ public class MainActivity extends AppCompatActivity {
                     myEditor.putString("password",passwordSF);
                     myEditor.apply();
 
-                    Cursor cursor = helper.DataValidation(userSF,passwordSF);
-                    if (cursor.getCount() > 0) {
+
+                    db = AppDatabase.getInstance(context);
+
+                    User byName = db.userModel().findByName(userSF);
+
+
+                    if (byName != null) {
                         Intent intent = new Intent(getApplicationContext(), TutorsManagement.class);
                         startActivity(intent);
                     } else {
@@ -86,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                     txtUserSign.findFocus();
                 }catch (SQLException e){
                     e.printStackTrace();
+
                 }
             }
         });

@@ -1,16 +1,10 @@
 package com.example.olgac.tutors_project;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
-
 /**
- * Created by olgac on 3/25/2018.
+ * Created by olgac on 3/28/2018.
  */
-@Entity
-public class Tutor {
-    @PrimaryKey
-    @NonNull
+
+public class TutorComplete {
     private long tutorId;
     private String firstName;
     private String lastName;
@@ -20,37 +14,25 @@ public class Tutor {
     private int subjectID;
     private String skill;
 
+    private int IDCampus;
+    private String nameC;
 
-    public Tutor(long tutorId, String firstname, String lastname,
-                 String email, String phone, int campus, int subject, String skill){
+    private int IDSubject;
+    private  String nameS;
+
+    public TutorComplete(long tutorId, String firstName, String lastName, String email, String phone, int campusID, int subjectID, String skill, int IDCampus, String nameC, int IDSubject, String nameS) {
         this.tutorId = tutorId;
-        this.firstName = firstname;
-        this.lastName = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.phone = phone;
-        this.campusID = campus;
-        this.subjectID = subject;
-        this.skill = skill;
-    }
-
-    public Tutor(){
-
-    }
-
-    public void setCampusID(int campusID) {
         this.campusID = campusID;
-    }
-
-    public void setSubjectID(int subjectID) {
         this.subjectID = subjectID;
-    }
-
-    public int getCampusID() {
-        return campusID;
-    }
-
-    public int getSubjectID() {
-        return subjectID;
+        this.skill = skill;
+        this.IDCampus = IDCampus;
+        this.nameC = nameC;
+        this.IDSubject = IDSubject;
+        this.nameS = nameS;
     }
 
     public long getTutorId() {
@@ -93,20 +75,20 @@ public class Tutor {
         this.phone = phone;
     }
 
-    public int getCampus() {
+    public int getCampusID() {
         return campusID;
     }
 
-    public void setCampus(int campus) {
-        this.campusID = campus;
+    public void setCampusID(int campusID) {
+        this.campusID = campusID;
     }
 
-    public int getSubject() {
+    public int getSubjectID() {
         return subjectID;
     }
 
-    public void setSubject(int subject) {
-        this.subjectID = subject;
+    public void setSubjectID(int subjectID) {
+        this.subjectID = subjectID;
     }
 
     public String getSkill() {
@@ -117,17 +99,53 @@ public class Tutor {
         this.skill = skill;
     }
 
+    public int getIDCampus() {
+        return IDCampus;
+    }
+
+    public void setIDCampus(int IDCampus) {
+        this.IDCampus = IDCampus;
+    }
+
+    public String getNameC() {
+        return nameC;
+    }
+
+    public void setNameC(String nameC) {
+        this.nameC = nameC;
+    }
+
+    public int getIDSubject() {
+        return IDSubject;
+    }
+
+    public void setIDSubject(int IDSubject) {
+        this.IDSubject = IDSubject;
+    }
+
+    public String getNameS() {
+        return nameS;
+    }
+
+    public void setNameS(String nameS) {
+        this.nameS = nameS;
+    }
+
     @Override
     public String toString() {
-        return "Tutor{" +
+        return "TutorComplete{" +
                 "tutorId=" + tutorId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", campus='" + campusID + '\'' +
-                ", subject='" + subjectID + '\'' +
+                ", campusID=" + campusID +
+                ", subjectID=" + subjectID +
                 ", skill='" + skill + '\'' +
+                ", IDCampus=" + IDCampus +
+                ", nameC='" + nameC + '\'' +
+                ", IDSubject=" + IDSubject +
+                ", nameS='" + nameS + '\'' +
                 '}';
     }
 }

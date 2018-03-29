@@ -30,6 +30,7 @@ public class TutorsManagement extends AppCompatActivity {
         tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
+
     }
 
     @Override

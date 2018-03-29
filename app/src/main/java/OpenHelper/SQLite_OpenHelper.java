@@ -38,9 +38,9 @@ public class SQLite_OpenHelper extends SQLiteOpenHelper {
                     COLUMN_LAST_NAME + " TEXT, " +
                     COLUMN_EMAIL + " TEXT, " +
                     COLUMN_PHONE + " NUMERIC, " +
-                    COLUMN_CAMPUS + " TEXT FOREIGN KEY('CampusID') REFERENCES 'Campus'('CampusID')" +
-                    COLUMN_SUBJECT + " TEXT FOREIGN KEY('SubjectID') REFERENCES 'Subject'('SubjectID')" +
-                    COLUMN_SKILL + " TEXT FOREIGN KEY('Skill_ID') REFERENCES 'Skills'('Skill_ID')" +
+                    COLUMN_CAMPUS + " TEXT FOREIGN KEY('CampusID') REFERENCES 'Campus'('CampusID') " +
+                    COLUMN_SUBJECT + " TEXT FOREIGN KEY('SubjectID') REFERENCES 'Subject'('SubjectID') " +
+                    COLUMN_SKILL + " TEXT FOREIGN KEY('Skill_ID') REFERENCES 'Skills'('Skill_ID') " +
                     ")";
 
     public SQLite_OpenHelper(Context context) {
